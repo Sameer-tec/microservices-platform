@@ -91,14 +91,15 @@ jobs:
           )
           for SERVICE in "${SERVICES[@]}"; do
             echo "Building $SERVICE..."
-            REPO_NAME="${ECR_REPO_PREFIX}-${SERVICE}"
+            BUILD_CONTEXT="src/$SERVICE"
+            
             if [ "$SERVICE" == "cartservice" ]; then
               BUILD_CONTEXT="src/cartservice/src"
             fi
             docker build \
               -t $ECR_REGISTRY/$ECR_REPO_PREFIX/$SERVICE:$GITHUB_SHA \
               -t $ECR_REGISTRY/$ECR_REPO_PREFIX/$SERVICE:latest \
-              src/$SERVICE
+              $BUILD_CONTEXT
             echo "Pushing $SERVICE..."
             docker push $ECR_REGISTRY/$ECR_REPO_PREFIX/$SERVICE:$GITHUB_SHA
             docker push $ECR_REGISTRY/$ECR_REPO_PREFIX/$SERVICE:latest
