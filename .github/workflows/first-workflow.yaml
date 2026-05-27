@@ -91,6 +91,7 @@ jobs:
           )
           for SERVICE in "${SERVICES[@]}"; do
             echo "Building $SERVICE..."
+            REPO_NAME="${ECR_REPO_PREFIX}-${SERVICE}"
             docker build \
               -t $ECR_REGISTRY/$ECR_REPO_PREFIX/$SERVICE:$GITHUB_SHA \
               -t $ECR_REGISTRY/$ECR_REPO_PREFIX/$SERVICE:latest \
