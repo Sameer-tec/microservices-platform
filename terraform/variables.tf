@@ -2,7 +2,7 @@
 variable "project_name" {
   description = "name of the project"
   type        = string
-  default     = "microservices-devops-project"
+  default     = "microservices-platform"
 }
 
 variable "region" {
@@ -140,7 +140,7 @@ variable "node_instance_types" {
 variable "node_desired_size" {
     description = "Desired number of nodes in the EKS node group"
     type        = number
-    default     = 2
+    default     = 3
   
 }
 
@@ -155,7 +155,7 @@ variable "node_min_size" {
 variable "node_max_size" {
     description = "Maximum number of nodes in the EKS node group"
     type        = number
-    default     = 3
+    default     = 5
   
 }
 
@@ -207,4 +207,12 @@ variable "github_repo" {
   description = "GitHub repository name for the project"
   type        = string
   default     = "microservices-platform"  
+}
+
+
+variable "grafana_admin_password" {
+  description = "Admin password for Grafana"
+  type        = string
+  default     = "GrafanaAdmin123!"
+  
 }

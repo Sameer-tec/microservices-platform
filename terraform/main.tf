@@ -97,9 +97,11 @@ enable_cluster_creator_admin_permissions = true
 
 resource "aws_ecr_repository" "microservices" {
   for_each = toset(var.microservices)
+  
 
   name                 = "${var.project_name}/${each.key}"
   image_tag_mutability = "MUTABLE"
+  force_delete         = true
 
   image_scanning_configuration {
     scan_on_push = true
@@ -229,4 +231,26 @@ resource "aws_eks_access_policy_association" "github_actions" {
   access_scope {
     type = "cluster"
   }
+}
+
+
+
+
+
+
+
+resource "helm_release" "kube_prometheus_stack" {
+  name       = "kube-prometheus-stack"
+  repository = "https://prometheus-community.github.io/helm-charts"
+  chart      = "kube-prometheus-stack" 
+  namespace  = "monitoring"
+  
+  
+  
+  
+  set_sensitive =[ {
+    name  = "grafana.adminPassword"
+    value = var.grafana_admin_password
+  }
+  ]
 }
