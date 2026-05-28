@@ -119,6 +119,9 @@ spec:
   - name: http
     port: 80
     targetPort: 8080
+  - name: https
+    port: 443
+    targetPort: 8080
 ---
 apiVersion: v1
 kind: Service
@@ -127,8 +130,12 @@ metadata:
   labels:
     app: frontend
   annotations:
-    service.beta.kubernetes.io/aws-load-balancer-type: "external"
+    #service.beta.kubernetes.io/aws-load-balancer-type: "external"
     service.beta.kubernetes.io/aws-load-balancer-scheme: "internet-facing"
+    service.beta.kubernetes.io/aws-load-balancer-ssl-ports: "443"
+    
+    # 2. Paste your exact Mumbai ARN string here
+    service.beta.kubernetes.io/aws-load-balancer-ssl-cert: "arn:aws:acm:ap-south-1:799771183940:certificate/354cbc16-f1bb-451b-8ea5-7ff9db9b8e91"
 spec:
   type: LoadBalancer
   selector:
@@ -136,6 +143,9 @@ spec:
   ports:
   - name: http
     port: 80
+    targetPort: 8080
+  - name: https
+    port: 443
     targetPort: 8080
 ---
 apiVersion: v1
