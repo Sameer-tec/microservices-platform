@@ -43,7 +43,7 @@ spec:
               - ALL
           privileged: false
           readOnlyRootFilesystem: true
-        image: 799771183940.dkr.ecr.ap-south-1.amazonaws.com/microservices-platform/productcatalogservice:latest
+        image: 182618816509.dkr.ecr.ap-south-1.amazonaws.com/microservices-platform/productcatalogservice:latest
         ports:
         - containerPort: 3550
         env:

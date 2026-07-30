@@ -77,7 +77,7 @@ spec:
               - ALL
           privileged: false
           readOnlyRootFilesystem: true
-        image: 799771183940.dkr.ecr.ap-south-1.amazonaws.com/microservices-platform/loadgenerator:latest
+        image: 182618816509.dkr.ecr.ap-south-1.amazonaws.com/microservices-platform/loadgenerator:latest
         env:
         - name: FRONTEND_ADDR
           value: "frontend:80"

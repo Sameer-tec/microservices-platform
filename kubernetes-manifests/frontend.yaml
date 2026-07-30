@@ -44,7 +44,7 @@ spec:
                 - ALL
             privileged: false
             readOnlyRootFilesystem: true
-          image: 799771183940.dkr.ecr.ap-south-1.amazonaws.com/microservices-platform/frontend:latest
+          image: 182618816509.dkr.ecr.ap-south-1.amazonaws.com/microservices-platform/frontend:latest
           ports:
           - containerPort: 8080
           readinessProbe:
@@ -138,7 +138,7 @@ metadata:
     service.beta.kubernetes.io/aws-load-balancer-ssl-ports: "443"
     
     # 2. Paste your exact Mumbai ARN string here
-    service.beta.kubernetes.io/aws-load-balancer-ssl-cert: "arn:aws:acm:ap-south-1:799771183940:certificate/354cbc16-f1bb-451b-8ea5-7ff9db9b8e91"
+    service.beta.kubernetes.io/aws-load-balancer-ssl-cert: "arn:aws:acm:ap-south-1:182618816509:certificate/354cbc16-f1bb-451b-8ea5-7ff9db9b8e91"
 spec:
   type: LoadBalancer
   selector:
