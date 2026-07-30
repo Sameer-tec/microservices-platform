@@ -19,7 +19,7 @@ permissions:
 
 env:
   AWS_REGION: ap-south-1
-  ECR_REGISTRY: 799771183940.dkr.ecr.ap-south-1.amazonaws.com
+  ECR_REGISTRY: 182618816509.dkr.ecr.ap-south-1.amazonaws.com
   ECR_REPO_PREFIX: microservices-platform
 
 jobs:
